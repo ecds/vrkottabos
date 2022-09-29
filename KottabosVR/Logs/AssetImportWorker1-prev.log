@@ -1,0 +1,297 @@
+Using pre-set license
+Built from '2022.1/staging' branch; Version is '2022.1.14f1 (ff7e140968b4) revision 16743956'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'en' Physical Memory: 16253 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.1.14f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+D:/Folders/EducationalGames/vrkottabos/KottabosVR
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+58218
+Successfully changed project path to: D:/Folders/EducationalGames/vrkottabos/KottabosVR
+D:/Folders/EducationalGames/vrkottabos/KottabosVR
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 109.84 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.67 ms.
+Initialize engine version: 2022.1.14f1 (ff7e140968b4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.1.14f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Folders/EducationalGames/vrkottabos/KottabosVR/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2487)
+    Vendor:   NVIDIA
+    VRAM:     12137 MB
+    Driver:   30.0.15.1215
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.1.14f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.1.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.1.14f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56744
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.14f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007730 seconds.
+Native extension for WindowsStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+[usbmuxd] Attached: 4 00008020-001065593A28402E
+Native extension for iOS target not found
+Refreshing native plugins compatible for Editor in 84.73 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.04 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.646 seconds
+Domain Reload Profiling:
+	ReloadAssembly (647ms)
+		BeginReloadAssembly (69ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (469ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (112ms)
+				TypeCache.Initialize (112ms)
+					TypeCache.ScanAssembly (110ms)
+				ResolveRequiredComponents (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (277ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (24ms)
+				SetLoadedEditorAssemblies (7ms)
+				RefreshPlugins (85ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (119ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007185 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Folders\EducationalGames\vrkottabos\KottabosVR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image D:\Folders\EducationalGames\vrkottabos\KottabosVR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Refreshing native plugins compatible for Editor in 87.79 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.04 ms.
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x0003d] in D:\Folders\EducationalGames\vrkottabos\KottabosVR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
+  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x0007b] in D:\Folders\EducationalGames\vrkottabos\KottabosVR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:256 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <f3aec01a34d14c7080754e28743c8472>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <f3aec01a34d14c7080754e28743c8472>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <f3aec01a34d14c7080754e28743c8472>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x000a5] in <f90799373c314538a0c910377078306d>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Completed reload, in  1.243 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1244ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (1010ms)
+			LoadAssemblies (90ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (283ms)
+				TypeCache.Initialize (278ms)
+					TypeCache.ScanAssembly (273ms)
+				ResolveRequiredComponents (5ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (535ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (88ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (276ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 1.02 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
+Unloading 4243 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (59.2 KB). Loaded Objects now: 4688.
+Memory consumption went from 0.63 GB to 0.63 GB.
+Total: 3.639700 ms (FindLiveObjects: 0.383300 ms CreateObjectMapping: 0.326300 ms MarkObjects: 2.847400 ms  DeleteObjects: 0.081800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 526437.061809 seconds.
+  path: Assets/Scenes/Models/Kottaboas_Stand_Satyr.fbx
+  artifactKey: Guid(07e055a155e8e764396e630f76f764ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/Kottaboas_Stand_Satyr.fbx using Guid(07e055a155e8e764396e630f76f764ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cba09710df9628b16067fc84e75ca1c8') in 0.866321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 128.132625 seconds.
+  path: Assets/Scenes/Models/1974.16 Kottabos Element of a Dancing Satyr 100K_normals.png
+  artifactKey: Guid(7a044c82d710acf41aa9a689b9a2bcad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/1974.16 Kottabos Element of a Dancing Satyr 100K_normals.png using Guid(7a044c82d710acf41aa9a689b9a2bcad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f7db1c36f8475b58266759779ff29df') in 0.171772 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Scenes/Models/Kottaboas_Stand_Satyr.fbx
+  artifactKey: Guid(07e055a155e8e764396e630f76f764ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/Kottaboas_Stand_Satyr.fbx using Guid(07e055a155e8e764396e630f76f764ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2de310328050467c59bbcf5f4525846') in 0.051185 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1665.549427 seconds.
+  path: Assets/Scenes/Models/Kottaboas_Bowl.fbx
+  artifactKey: Guid(696898801bcfbd74caa34c8edc14d9ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/Kottaboas_Bowl.fbx using Guid(696898801bcfbd74caa34c8edc14d9ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3273e85dea233e81f5d9634414588a8') in 0.160221 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Scenes/Models/Lid_Texture.png
+  artifactKey: Guid(664ffa7f18456094bb88018c46106276) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/Lid_Texture.png using Guid(664ffa7f18456094bb88018c46106276) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f6f1af03d812234afac98e54deb4f2f') in 0.019695 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Scenes/Models/siana_schaal_low_res_DIFF.jpg
+  artifactKey: Guid(010850768e14c6e4d9f80ce3a237052c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/siana_schaal_low_res_DIFF.jpg using Guid(010850768e14c6e4d9f80ce3a237052c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17ea0b12837957ea9197ddf79b73ab75') in 0.041569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Scenes/Models/Lid_Roughness.png
+  artifactKey: Guid(cea50e645e4ca734197a8a7716e3cd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/Lid_Roughness.png using Guid(cea50e645e4ca734197a8a7716e3cd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '441516fe66a2a8b1bb7a5948ad5ffc49') in 0.026630 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Scenes/Models/siana_schaal_low_res_SPEC.jpg
+  artifactKey: Guid(f82b858db9e24b841942a94f558febd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Models/siana_schaal_low_res_SPEC.jpg using Guid(f82b858db9e24b841942a94f558febd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b187b5eccb17f197aaa956a0933a1ca') in 0.017694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 472.143743 seconds.
+  path: Assets/Models/Kottaboas_Bowl.fbx
+  artifactKey: Guid(696898801bcfbd74caa34c8edc14d9ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Kottaboas_Bowl.fbx using Guid(696898801bcfbd74caa34c8edc14d9ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c790ee201a667c9e7023e3c5a31cbf1') in 0.117540 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 183.599313 seconds.
+  path: Assets/Models/tableTop.fbx
+  artifactKey: Guid(a67df60635d1d964a8ee3b5fdfb064ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/tableTop.fbx using Guid(a67df60635d1d964a8ee3b5fdfb064ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51fe3b0fdde687a715317f3ca2eb6c24') in 0.108256 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Water_Pbr_Diffuse.jpg
+  artifactKey: Guid(b7cd097b08a7d7b468802da761b10d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Water_Pbr_Diffuse.jpg using Guid(b7cd097b08a7d7b468802da761b10d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '345e36fc0102b4d69dd0b97c8fb3d603') in 0.031042 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/water_ball.fbx
+  artifactKey: Guid(e3f420ab86d3e1a46b3c8a39c3cd302c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/water_ball.fbx using Guid(e3f420ab86d3e1a46b3c8a39c3cd302c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66aed9990a949cc74badb3b34e099e3f') in 0.275095 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Wood_Plywood_Front_001_normal.jpg
+  artifactKey: Guid(70cdc8cefba09b24981c7ffa35779c30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Wood_Plywood_Front_001_normal.jpg using Guid(70cdc8cefba09b24981c7ffa35779c30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffba884ac8be25906a1aead92099a910') in 0.028781 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Models/Wood_Plywood_Front_001_ambientOcclusion.jpg
+  artifactKey: Guid(c5e7fdc69e896c549a0fa28fbb70186d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Wood_Plywood_Front_001_ambientOcclusion.jpg using Guid(c5e7fdc69e896c549a0fa28fbb70186d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0965390e1f24cbbb69151438d33e9bb8') in 0.016731 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Wood_Plywood_Front_001_roughness.jpg
+  artifactKey: Guid(0539ca77c681ed7418c505ea50b0c053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Wood_Plywood_Front_001_roughness.jpg using Guid(0539ca77c681ed7418c505ea50b0c053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '118c3b8c322fe04f78b03c2463664221') in 0.016325 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Wood_Plywood_Front_001_basecolor.jpg
+  artifactKey: Guid(bad2f8fab7b7d824ca2b37f6561a0e90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Wood_Plywood_Front_001_basecolor.jpg using Guid(bad2f8fab7b7d824ca2b37f6561a0e90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb7d469683024c593219652f1b99c9f') in 0.017056 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
