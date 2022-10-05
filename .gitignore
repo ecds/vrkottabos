@@ -9,7 +9,7 @@
 /KottabosVR/[Bb]uilds/
 /KottabosVR/[Ll]ogs/
 /KottabosVR/[Mm]emoryCaptures/
-/KottabosVR//[Uu]serSettings/
+/KottabosVR/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
