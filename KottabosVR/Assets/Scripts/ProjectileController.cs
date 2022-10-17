@@ -16,7 +16,7 @@ public class ProjectileController : MonoBehaviour
 
 	public void Update()
 	{
-		//Debug.DrawLine(this.transform.position, Vector3.zero, Color.red, 1.0f, false);
+		Debug.DrawLine(this.transform.position, Vector3.zero, Color.red, 1.0f, false);
 		//Debug.Log(this.transform.position);
 	}
 
