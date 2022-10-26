@@ -1,0 +1,11 @@
+Model Information:
+* title:	Egg
+* source:	https://sketchfab.com/3d-models/egg-c46d64155bae47d4a0888cdfcf8c27dc
+* author:	joe_carrot (https://sketchfab.com/joe_carrot)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Egg" (https://sketchfab.com/3d-models/egg-c46d64155bae47d4a0888cdfcf8c27dc) by joe_carrot (https://sketchfab.com/joe_carrot) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
