@@ -20,6 +20,8 @@ public class CupController : MonoBehaviour
 	private bool isFilled;
 	private ProjectileController fillObject;
 
+	public int shotsFired;
+
 
 	/// <summary>
 	/// Spawns the fill prefab.
@@ -30,6 +32,7 @@ public class CupController : MonoBehaviour
 	{
 		this.prevPos = this.transform.position;
 		this.isFilled = false;
+		shotsFired = 0;
 
 	}
 
