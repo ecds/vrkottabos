@@ -410,9 +410,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillPrefab: {fileID: -6871611532145383570, guid: 5fe5364d78e5c874d8425db1fa8f0245, type: 3}
-  fillTransform: {fileID: 844624792}
+  fill: {fileID: 4536155311736966513, guid: 28753f365c47429418b47ecd012e82c3, type: 3}
+  throwOffset: {fileID: 844624792}
   meshCollider: {fileID: 951920425}
-  releaseSpeed: 1
+  releaseSpeed: 5
+  peakResetThreshold: 0
+  shotsFired: 0
 --- !u!114 &483069943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,6 +1311,10 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
       propertyPath: m_Name
       value: XR Device Simulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
