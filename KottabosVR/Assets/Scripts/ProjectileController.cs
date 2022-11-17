@@ -26,6 +26,7 @@ public class ProjectileController : MonoBehaviour
 
 	public void Update()
 	{
+
 		if (this.seperated)
 		{
 			this.lifeSpan -= Time.deltaTime;
@@ -39,6 +40,8 @@ public class ProjectileController : MonoBehaviour
 				this.collider.enabled = true;
 			}
 		}
+		Debug.DrawLine(this.transform.position, Vector3.zero, Color.red, 1.0f, false);
+		//Debug.Log(this.transform.position);
 	}
 
 	public void Release()

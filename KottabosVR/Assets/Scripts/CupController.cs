@@ -26,6 +26,8 @@ public class CupController : MonoBehaviour
 	private RunningAverage<Vector3> averageVelocity;
 	private PeakTracker peakSpeed;
 
+	public int shotsFired;
+
 
 	public void Start()
 	{
@@ -34,6 +36,7 @@ public class CupController : MonoBehaviour
 		this.wine_lees = this.fill.GetComponentsInChildren<Transform>();
 		this.averageVelocity = new(10);
 		this.peakSpeed = new(this.peakResetThreshold);
+		shotsFired = 0;
 	}
 
 	public void FixedUpdate()
