@@ -1,7 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿
+using System;
+using System.Linq.Expressions;
 
 
-class RunningAverage<T> : CircularQueue<T> where T : struct
+public class RunningAverage<T> : CircularQueue<T>
 {
 	// custom delagates to allow ref parameters
 	protected delegate void IPDelegate<T1>(ref T1 param1);
@@ -17,6 +19,9 @@ class RunningAverage<T> : CircularQueue<T> where T : struct
 	protected static ReturnDelegate<T, T, uint> Div;
 	protected static IPDelegate<T> SetZero;
 	protected static ReturnDelegate<T, T[]> SumLoop;
+
+
+	public T Average => RunningAverage<T>.Div(this.sum, this.size);
 
 
 	static RunningAverage()
@@ -53,14 +58,29 @@ class RunningAverage<T> : CircularQueue<T> where T : struct
 		 *		return TParam / (T)uintParam;
 		 * }
 		 */
-		BinaryExpression divBody = Expression.Divide(TParam, Expression.Convert(uintParam, TParam.Type));
+		BinaryExpression divBody; // TODO: Generalize to try all casts in best order
+		try
+		{
+			divBody = Expression.Divide(TParam, uintParam);
+		}
+		catch (InvalidOperationException)
+		{
+			try
+			{
+				divBody = Expression.Divide(TParam, Expression.Convert(uintParam, TParam.Type));
+			}
+			catch (InvalidOperationException)
+			{
+				divBody = Expression.Divide(TParam, Expression.Convert(uintParam, typeof(float)));
+			}
+		}
 
 		/* 
 		 * void SetZero<T>(ref T TParam_ip) {
 		 *		TParam_ip = (T)0;
 		 * }
 		 */
-		BinaryExpression setBody = Expression.Assign(TParam_ip, Expression.Convert(Expression.Constant(0), TParam_ip.Type));
+		BinaryExpression setBody = Expression.Assign(TParam_ip, Expression.Default(typeof(T)));
 
 		/* 
 		 * T SumLoop<T>(T[] arrayParam) {
@@ -77,7 +97,7 @@ class RunningAverage<T> : CircularQueue<T> where T : struct
 		 * }
 		 */
 		BlockExpression sumBody = Expression.Block(new[] { arrayParam, TParam, int32Param },
-			Expression.Assign(TParam, Expression.Convert(Expression.Constant(0), TParam.Type)),
+			Expression.Assign(TParam, Expression.Default(typeof(T))),
 			Expression.Assign(int32Param, Expression.ArrayLength(arrayParam)),
 			Expression.Loop(Expression.IfThenElse(
 				Expression.GreaterThan(Expression.PostDecrementAssign(int32Param), Expression.Constant(0)),
@@ -86,7 +106,7 @@ class RunningAverage<T> : CircularQueue<T> where T : struct
 				),
 			label
 			),
-			TParam // return TParam
+			TParam // return TParam (BlockExpressions return the final statement)
 		);
 
 
@@ -97,8 +117,6 @@ class RunningAverage<T> : CircularQueue<T> where T : struct
 		RunningAverage<T>.SetZero = Expression.Lambda<IPDelegate<T>>(setBody, TParam_ip).Compile();
 		RunningAverage<T>.SumLoop = Expression.Lambda<ReturnDelegate<T, T[]>>(sumBody, arrayParam).Compile();
 	}
-
-	public T Average => RunningAverage<T>.Div(this.sum, this.size);
 
 
 	public RunningAverage(uint size) : base(size)
