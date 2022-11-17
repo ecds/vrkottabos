@@ -7,17 +7,70 @@ public class Score : MonoBehaviour
 {
     public static float score;
 
+    public float pointsToWin;
+
     public GameObject scoreText;
+
+    public GameObject shotsText;
+
+    public GameObject nextLevelButton;
+    public GameObject restartLevelButton;
+
+    private bool gameOver, youWin;
+
+    public int shots;
+
+    int shotsFired, shotsLeft;
+    public CupController cupController;
+
 
     void Start()
     {
         score = 0;
+        pointsToWin = 30;
+        shots = 10;
+
         scoreText = GameObject.Find("ScoreText");
+
+        shotsText = GameObject.Find("ShotsText");
+
+        nextLevelButton = GameObject.Find("NextLevelButton");
+        nextLevelButton.SetActive(false);
+        restartLevelButton = GameObject.Find("RestartLevelButton");
+        restartLevelButton.SetActive(false);
+
+        cupController = FindObjectOfType<CupController>();
+        cupController.shotsFired = shotsFired;
     }
 
     void Update()
     {
-        scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score;
+        scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+
+        shotsLeft = shots - shotsFired;
+        shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+
+        if(gameOver == false && shotsLeft <= 0 && score < pointsToWin)
+        {
+            GameOver();
+        }
+
+        if(youWin == false && score >= pointsToWin)
+        {
+            YouWin();
+        }
+    }
+
+    void GameOver()
+    {
+        gameOver = true;
+        restartLevelButton.SetActive(true);
+    }
+
+    void YouWin()
+    {
+        youWin = true;
+        nextLevelButton.SetActive(true);
     }
 
     /*give scripts to cup, projectile, and plastinx
