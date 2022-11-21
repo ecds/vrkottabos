@@ -2271,7 +2271,6 @@ MonoBehaviour:
   nextLevelButton: {fileID: 0}
   restartLevelButton: {fileID: 0}
   shots: 0
-  cupController: {fileID: 0}
 --- !u!4 &577177843
 Transform:
   m_ObjectHideFlags: 0
@@ -8625,7 +8624,6 @@ MonoBehaviour:
   meshCollider: {fileID: 105908260}
   releaseSpeed: 1
   peakResetThreshold: 0
-  shotsFired: 0
 --- !u!135 &1919242983
 SphereCollider:
   m_ObjectHideFlags: 0

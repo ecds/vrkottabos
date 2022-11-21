@@ -26,7 +26,6 @@ public class CupController : MonoBehaviour
 	private RunningAverage<Vector3> averageVelocity;
 	private PeakTracker peakSpeed;
 
-	public int shotsFired;
 
 
 	public void Start()
@@ -36,7 +35,6 @@ public class CupController : MonoBehaviour
 		this.wine_lees = this.fill.GetComponentsInChildren<Transform>();
 		this.averageVelocity = new(10);
 		this.peakSpeed = new(this.peakResetThreshold);
-		shotsFired = 0;
 	}
 
 	public void FixedUpdate()
@@ -60,6 +58,7 @@ public class CupController : MonoBehaviour
 			this.fill.gameObject.SetActive(false);
 			this.fillObject.Release();
 			this.fillObject.gameObject.SetActive(true);
+			IncreaseShotsFired();
 			Debug.Log(avgVel);
 		}
 	}
@@ -78,5 +77,10 @@ public class CupController : MonoBehaviour
 		{
 			each.localPosition = Vector3.zero;
 		}
+	}
+
+	public void IncreaseShotsFired()
+    {
+		Score.shotsFired += 1;
 	}
 }

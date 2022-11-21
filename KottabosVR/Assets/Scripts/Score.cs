@@ -19,9 +19,9 @@ public class Score : MonoBehaviour
     private bool gameOver, youWin;
 
     public int shots;
+    public static int shotsFired;
 
-    int shotsFired, shotsLeft;
-    public CupController cupController;
+    int shotsLeft;
 
 
     void Start()
@@ -29,6 +29,7 @@ public class Score : MonoBehaviour
         score = 0;
         pointsToWin = 30;
         shots = 10;
+        shotsFired = 0;
 
         scoreText = GameObject.Find("ScoreText");
 
@@ -39,18 +40,16 @@ public class Score : MonoBehaviour
         restartLevelButton = GameObject.Find("RestartLevelButton");
         restartLevelButton.SetActive(false);
 
-        cupController = FindObjectOfType<CupController>();
-        cupController.shotsFired = shotsFired;
     }
 
     void Update()
     {
         scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
-
+        
         shotsLeft = shots - shotsFired;
         shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
-
-        if(gameOver == false && shotsLeft <= 0 && score < pointsToWin)
+        
+        if (gameOver == false && shotsLeft <= 0)
         {
             GameOver();
         }
