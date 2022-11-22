@@ -1,0 +1,9 @@
+newmtl fish_plate_20170217-TEX-redux
+Ka 0.239200 0.239200 0.251000
+Kd 0.745100 0.764700 0.823500
+Ks 0.866700 0.866700 0.866700
+illum 0
+map_Ka fish_plate_20170217-TEX-redux.jpg
+map_Kd fish_plate_20170217-TEX-redux.jpg
+map_Ks fish_plate_20170217-TEX-redux.jpg
+
