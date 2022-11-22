@@ -25,7 +25,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadTutorial()
     {
-        //SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("KottabosTutorialLevel");
     }
     public void LoadLevel1()
     {
@@ -33,11 +33,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadLevel2()
     {
-        //SceneManager.LoadScene("KottabosLevel2");
+        SceneManager.LoadScene("KottabosLevel2");
     }
     public void LoadLevel3()
     {
-        //SceneManager.LoadScene("KottabosLevel3");
+        SceneManager.LoadScene("KottabosLevel3");
     }
     public void QuitGame()
     {
