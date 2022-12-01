@@ -60,6 +60,7 @@ public class CupController : MonoBehaviour
 			this.fill.gameObject.SetActive(false);
 			this.fillObject.Release();
 			this.fillObject.gameObject.SetActive(true);
+			IncreaseShotsFired();
 			Debug.Log(avgVel);
 		}
 	}
@@ -78,5 +79,10 @@ public class CupController : MonoBehaviour
 		{
 			each.localPosition = Vector3.zero;
 		}
+	}
+
+	public void IncreaseShotsFired()
+    {
+		Score.shotsFired += 1;
 	}
 }

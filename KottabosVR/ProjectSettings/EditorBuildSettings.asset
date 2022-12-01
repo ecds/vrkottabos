@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7140bac97f7a88a47b403b84fbef633c
   - enabled: 1
+    path: Assets/Scenes/KottabosTutorialLevel.unity
+    guid: 9eb5c800656108a47953b8b6fbf65a9c
+  - enabled: 1
     path: Assets/Scenes/KottabosLevel1.unity
     guid: b36d3615bcf937c42b4e57c9ed372e80
+  - enabled: 1
+    path: Assets/Scenes/KottabosLevel2.unity
+    guid: b92ab1e1d09d90247a55d4f85d517a58
+  - enabled: 1
+    path: Assets/Scenes/KottabosLevel3.unity
+    guid: da80f01a51df0c241b9f9f4cef258175
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e6244affb9b92034f968a57f19bc6566, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1ac924dd2d2697f47b1f68f314c371bc, type: 2}
