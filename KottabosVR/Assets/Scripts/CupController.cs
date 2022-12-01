@@ -82,7 +82,7 @@ public class CupController : MonoBehaviour
 	}
 
 	public void IncreaseShotsFired()
-    {
+	{
 		Score.shotsFired += 1;
 	}
 }
