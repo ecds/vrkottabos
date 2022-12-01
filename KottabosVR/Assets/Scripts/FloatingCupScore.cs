@@ -9,6 +9,7 @@ public class FloatingCupScore : ScoreObjectBase
     int amountToSink = 3;
     int hits;
     public Transform projectileModel1, projectileModel2, projectileModel3;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class FloatingCupScore : ScoreObjectBase
         projectileModel2.GetComponent<MeshRenderer>().enabled = false;
         projectileModel3.GetComponent<MeshRenderer>().enabled = false;
 
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,6 +36,8 @@ public class FloatingCupScore : ScoreObjectBase
     {
         if (col.gameObject.tag == "Projectile")
         {
+            audioSource.Play();
+
             hits += 1;
             if (hits <= amountToSink)
             {
