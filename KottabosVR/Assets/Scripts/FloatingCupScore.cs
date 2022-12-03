@@ -13,9 +13,9 @@ public class FloatingCupScore : ScoreObjectBase
 
     void Start()
     {
-        projectileModel1 = this.gameObject.transform.Find("Sphere");
-        projectileModel2 = this.gameObject.transform.Find("Sphere2");
-        projectileModel3 = this.gameObject.transform.Find("Sphere3");
+        projectileModel1 = this.gameObject.transform.Find("WineLees");
+        projectileModel2 = this.gameObject.transform.Find("WineLees2");
+        projectileModel3 = this.gameObject.transform.Find("WineLees3");
 
         hits = 0;
         projectileModel1.GetComponent<MeshRenderer>().enabled = false;
