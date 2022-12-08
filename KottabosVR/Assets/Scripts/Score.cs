@@ -80,7 +80,7 @@ public class Score : MonoBehaviour
             GameOver();
         }
 
-        if(youWin == false && score >= pointsToWin)
+        if(youWin == false && score >= pointsToWin && gameOver == false)
         {
             YouWin();
         }
