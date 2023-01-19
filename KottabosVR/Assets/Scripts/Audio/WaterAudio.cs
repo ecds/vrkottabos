@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class WaterAudio : MonoBehaviour
 {
-    AudioSource audioSource;
+    private AudioSource audioSource;
+    public AudioClip[] sounds;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Projectile")
         {
-            audioSource.Play();
+            PlayAudio(0, 6);
+            Debug.Log("Projectile water");
         }
+        else if (col.gameObject.tag == "Kylix")
+        {
+            PlayAudio(7, 7);
+        }
+    }
+
+    public void PlayAudio(int startIndex, int endIndex)
+    {
+        int index = Random.Range(startIndex, endIndex);
+        audioSource.clip = sounds[index];
+        audioSource.Play();
     }
 }
