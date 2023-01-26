@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -23,13 +24,38 @@ public class Score : MonoBehaviour
 
     int shotsLeft;
 
+    string currentLevel;
+
 
     void Start()
     {
         score = 0;
-        pointsToWin = 30;
-        shots = 10;
         shotsFired = 0;
+
+        currentLevel = SceneManager.GetActiveScene().name;
+        switch (currentLevel)
+        {
+            case "MainMenu":
+                pointsToWin = 0;
+                shots = 999;
+                break;
+            case "KottabosTutorial":
+                pointsToWin = 0;
+                shots = 999;
+                break;
+            case "KottabosLevel1":
+                pointsToWin = 15;
+                shots = 15;
+                break;
+            case "KottabosLevel2":
+                pointsToWin = 30;
+                shots = 50;
+                break;
+            case "KottabosLevel3":
+                pointsToWin = 30;
+                shots = 50;
+                break;
+        }
 
         scoreText = GameObject.Find("ScoreText");
 
@@ -54,7 +80,7 @@ public class Score : MonoBehaviour
             GameOver();
         }
 
-        if(youWin == false && score >= pointsToWin)
+        if(youWin == false && score >= pointsToWin && gameOver == false)
         {
             YouWin();
         }
