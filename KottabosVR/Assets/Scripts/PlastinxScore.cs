@@ -6,7 +6,9 @@ public class PlastinxScore : ScoreObjectBase
 {
     // Should be assigned to the plastinx prefab
 
-    AudioSource audioSource;
+    private AudioSource audioSource;
+    public AudioClip[] sounds;
+    bool onFloor;
 
     void Start()
     {
@@ -18,19 +20,29 @@ public class PlastinxScore : ScoreObjectBase
         if (col.gameObject.tag == "Mane")
         {
             addScore(5f);
-            audioSource.Play();
+            PlayAudio(0,4);
         }
         else if (col.gameObject.layer == 6) //if hits terrain layer
         {
             addScore(10f);
-            audioSource.Play();
+            PlayAudio(5,9);
+            onFloor = true;
         }
         else if (col.gameObject.tag == "Projectile")
         {
-            audioSource.Play();
+            if (!onFloor)
+            {
+                addScore(5f);
+            }
+            PlayAudio(10,14);
         }
-
 
     }
 
+    public void PlayAudio(int startIndex, int endIndex)
+    {
+        int index = Random.Range(startIndex,endIndex);
+        audioSource.clip = sounds[index];
+        audioSource.Play();
+    }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Mane : MonoBehaviour
 {
-    AudioSource audioSource;
-    
+    private AudioSource audioSource;
+    public AudioClip[] sounds;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -13,9 +14,20 @@ public class Mane : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Plastinx" || col.gameObject.tag == "Projectile")
+        if (col.gameObject.tag == "Projectile")
         {
-            audioSource.Play();
+            PlayAudio(0, 0);
         }
+        else if (col.gameObject.tag == "Kylix")
+        {
+            PlayAudio(0, 0);
+        }
+    }
+
+    public void PlayAudio(int startIndex, int endIndex)
+    {
+        int index = Random.Range(startIndex, endIndex);
+        audioSource.clip = sounds[index];
+        audioSource.Play();
     }
 }

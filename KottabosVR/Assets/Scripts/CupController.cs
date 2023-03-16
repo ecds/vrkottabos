@@ -26,16 +26,22 @@ public class CupController : MonoBehaviour
 	private RunningAverage<Vector3> averageVelocity;
 	private PeakTracker peakSpeed;
 
+    private AudioSource audioSource;
+    public AudioClip[] sounds;
+    float audioTimer, audioDelay;
 
-
-	public void Start()
+    public void Start()
 	{
 		this.prevPos = this.transform.position;
 		this.isFilled = false;
 		this.wine_lees = this.fill.GetComponentsInChildren<Transform>();
 		this.averageVelocity = new(10);
 		this.peakSpeed = new(this.peakResetThreshold);
-	}
+
+        audioSource = GetComponent<AudioSource>();
+        audioTimer = 0;
+        
+    }
 
 	public void FixedUpdate()
 	{
@@ -59,9 +65,11 @@ public class CupController : MonoBehaviour
 			this.fillObject.Release();
 			this.fillObject.gameObject.SetActive(true);
 			IncreaseShotsFired();
-			Debug.Log(avgVel);
-		}
-	}
+            PlayAudio(0, 6);
+        }
+
+        audioTimer -= Time.deltaTime;
+    }
 
 	public void Fill()
 	{
@@ -83,4 +91,26 @@ public class CupController : MonoBehaviour
     {
 		Score.shotsFired += 1;
 	}
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            
+            if (audioTimer <= 0)
+            {
+				int index = Random.Range(7, 10);
+                audioTimer = sounds[index].length;
+                PlayAudio(index, index);
+            }
+        }
+
+    }
+
+    public void PlayAudio(int startIndex, int endIndex)
+    {
+        int index = Random.Range(startIndex, endIndex);
+        audioSource.clip = sounds[index];
+        audioSource.PlayOneShot(audioSource.clip, 0.5f);
+    }
 }

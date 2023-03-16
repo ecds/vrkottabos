@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private AudioSource audioSource;
+    public AudioClip menuClick;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void playMenuClick()
+    {
+        audioSource.clip = menuClick;
+        audioSource.Play();
     }
 }
