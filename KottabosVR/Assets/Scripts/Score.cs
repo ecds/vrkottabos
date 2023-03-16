@@ -17,6 +17,9 @@ public class Score : MonoBehaviour
     public GameObject nextLevelButton;
     public GameObject restartLevelButton;
 
+    private GameObject audioSource;
+    public AudioClip[] sounds;
+
     private bool gameOver, youWin;
 
     public int shots;
@@ -25,6 +28,8 @@ public class Score : MonoBehaviour
     int shotsLeft;
 
     string currentLevel;
+
+    bool isTutorial;
 
 
     void Start()
@@ -37,23 +42,28 @@ public class Score : MonoBehaviour
         {
             case "MainMenu":
                 pointsToWin = 0;
-                shots = 999;
+                shots = 0;
+                isTutorial = true;
                 break;
-            case "KottabosTutorial":
+            case "KottabosTutorialLevel":
                 pointsToWin = 0;
-                shots = 999;
+                shots = 0;
+                isTutorial = true;
                 break;
             case "KottabosLevel1":
                 pointsToWin = 15;
                 shots = 15;
+                isTutorial = false;
                 break;
             case "KottabosLevel2":
                 pointsToWin = 30;
                 shots = 50;
+                isTutorial = false;
                 break;
             case "KottabosLevel3":
                 pointsToWin = 30;
                 shots = 50;
+                isTutorial = false;
                 break;
         }
 
@@ -66,6 +76,8 @@ public class Score : MonoBehaviour
         restartLevelButton = GameObject.Find("RestartLevelButton");
         restartLevelButton.SetActive(false);
 
+        audioSource = GameObject.Find("TavernAudioSource");
+
     }
 
     void Update()
@@ -73,6 +85,10 @@ public class Score : MonoBehaviour
         scoreText.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
         
         shotsLeft = shots - shotsFired;
+        if(shotsLeft < 0)
+        {
+            shotsLeft = 0;
+        }
         shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
         
         if (gameOver == false && shotsLeft <= 0)
@@ -90,12 +106,22 @@ public class Score : MonoBehaviour
     {
         gameOver = true;
         restartLevelButton.SetActive(true);
+        if (!isTutorial)
+        {
+            audioSource.GetComponent<AmbienceAudio>().LoseAudio();
+        }
+        
     }
 
     void YouWin()
     {
         youWin = true;
         nextLevelButton.SetActive(true);
+        if (!isTutorial)
+        {
+            audioSource.GetComponent<AmbienceAudio>().WinAudio();
+        }
+        
     }
 
     /*give scripts to cup, projectile, and plastinx
