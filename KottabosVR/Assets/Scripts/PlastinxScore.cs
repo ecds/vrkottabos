@@ -8,6 +8,7 @@ public class PlastinxScore : ScoreObjectBase
 
     private AudioSource audioSource;
     public AudioClip[] sounds;
+    bool onFloor;
 
     void Start()
     {
@@ -25,9 +26,14 @@ public class PlastinxScore : ScoreObjectBase
         {
             addScore(10f);
             PlayAudio(5,9);
+            onFloor = true;
         }
         else if (col.gameObject.tag == "Projectile")
         {
+            if (!onFloor)
+            {
+                addScore(5f);
+            }
             PlayAudio(10,14);
         }
 

@@ -17,7 +17,6 @@ public class WaterAudio : MonoBehaviour
         if (col.gameObject.tag == "Projectile")
         {
             PlayAudio(0, 6);
-            Debug.Log("Projectile water");
         }
         else if (col.gameObject.tag == "Kylix")
         {

@@ -8,11 +8,7 @@ public class ProjectileScore : ScoreObjectBase
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Plastinx")
-        {
-            addScore(5f);
-        }
-        else if(col.gameObject.tag == "Mane")
+        if(col.gameObject.tag == "Mane")
         {
             addScore(1f);
         }
