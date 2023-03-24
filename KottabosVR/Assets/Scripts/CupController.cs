@@ -27,11 +27,11 @@ public class CupController : MonoBehaviour
 	private PeakTracker peakSpeed;
 
 	public int shotsFired;
-    private AudioSource audioSource;
-    public AudioClip[] sounds;
-    float audioTimer, audioDelay;
+	private AudioSource audioSource;
+	public AudioClip[] sounds;
+	float audioTimer, audioDelay;
 
-    public void Start()
+	public void Start()
 	{
 		this.prevPos = this.transform.position;
 		this.isFilled = false;
@@ -39,9 +39,9 @@ public class CupController : MonoBehaviour
 		this.averageVelocity = new(10);
 		this.peakSpeed = new(this.peakResetThreshold);
 		shotsFired = 0;
-        audioSource = GetComponent<AudioSource>();
-        audioTimer = 0;
-    }
+		audioSource = GetComponent<AudioSource>();
+		audioTimer = 0;
+	}
 
 	public void FixedUpdate()
 	{
@@ -65,11 +65,11 @@ public class CupController : MonoBehaviour
 			this.fillObject.Release();
 			this.fillObject.gameObject.SetActive(true);
 			IncreaseShotsFired();
-            PlayAudio(0, 6);
-        }
+			PlayAudio(0, 6);
+		}
 
-        audioTimer -= Time.deltaTime;
-    }
+		audioTimer -= Time.deltaTime;
+	}
 
 	public void Fill()
 	{
@@ -92,25 +92,25 @@ public class CupController : MonoBehaviour
 		Score.shotsFired += 1;
 	}
 
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Terrain"))
-        {
-            
-            if (audioTimer <= 0)
-            {
+	void OnCollisionEnter(Collision col)
+	{
+		if (col.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+		{
+			
+			if (audioTimer <= 0)
+			{
 				int index = Random.Range(7, 10);
-                audioTimer = sounds[index].length;
-                PlayAudio(index, index);
-            }
-        }
+				audioTimer = sounds[index].length;
+				PlayAudio(index, index);
+			}
+		}
 
-    }
+	}
 
-    public void PlayAudio(int startIndex, int endIndex)
-    {
-        int index = Random.Range(startIndex, endIndex);
-        audioSource.clip = sounds[index];
-        audioSource.PlayOneShot(audioSource.clip, 0.5f);
-    }
+	public void PlayAudio(int startIndex, int endIndex)
+	{
+		int index = Random.Range(startIndex, endIndex);
+		audioSource.clip = sounds[index];
+		audioSource.PlayOneShot(audioSource.clip, 0.5f);
+	}
 }
