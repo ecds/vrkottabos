@@ -9,7 +9,8 @@ public class FloatingCupScore : ScoreObjectBase
     int amountToSink = 3;
     int hits;
     public Transform projectileModel1, projectileModel2, projectileModel3;
-    AudioSource audioSource;
+    private AudioSource audioSource;
+    public AudioClip[] sounds;
 
     void Start()
     {
@@ -36,12 +37,14 @@ public class FloatingCupScore : ScoreObjectBase
     {
         if (col.gameObject.tag == "Projectile")
         {
-            audioSource.Play();
+            
 
             hits += 1;
             if (hits <= amountToSink)
             {
-                if(hits == 1)
+                PlayAudio(0, 6);
+
+                if (hits == 1)
                 {
                     projectileModel1.GetComponent<MeshRenderer>().enabled = true;
                 }
@@ -62,11 +65,20 @@ public class FloatingCupScore : ScoreObjectBase
             Destroy(col.gameObject);
         }
 
+        
+
     }
 
     void Sink()
     {
         addScore(7f);
         this.GetComponent<Rigidbody>().mass = 7;
+    }
+
+    public void PlayAudio(int startIndex, int endIndex)
+    {
+        int index = Random.Range(startIndex, endIndex);
+        audioSource.clip = sounds[index];
+        audioSource.Play();
     }
 }
