@@ -9,6 +9,7 @@ public class MenuCanvas : MonoBehaviour
     GameObject levelSelectCanvas;
     GameObject settingsCanvas;
     GameObject creditsCanvas;
+    GameObject infoCanvas;
 
     GameObject currentCanvas;
 
@@ -23,6 +24,8 @@ public class MenuCanvas : MonoBehaviour
         settingsCanvas.SetActive(false);
         creditsCanvas = GameObject.Find("CreditsCanvas");
         creditsCanvas.SetActive(false);
+        infoCanvas = GameObject.Find("InfoCanvas");
+        infoCanvas.SetActive(false);
     }
 
 
@@ -52,6 +55,13 @@ public class MenuCanvas : MonoBehaviour
         currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
         currentCanvas.SetActive(false);
         creditsCanvas.SetActive(true);
+    }
+
+    public void LoadInfoCanvas()
+    {
+        currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        currentCanvas.SetActive(false);
+        infoCanvas.SetActive(true);
     }
 
 
