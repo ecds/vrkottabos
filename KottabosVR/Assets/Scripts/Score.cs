@@ -31,6 +31,14 @@ public class Score : MonoBehaviour
 
     bool isTutorial;
 
+    GameObject tutorialCanvas;
+    GameObject frontCanvas;
+    GameObject frontText;
+    GameObject frontScoreText;
+    GameObject frontNextLevelButton;
+    GameObject frontShotsText;
+
+
 
     void Start()
     {
@@ -74,10 +82,25 @@ public class Score : MonoBehaviour
         nextLevelButton = GameObject.Find("NextLevelButton");
         nextLevelButton.SetActive(false);
         restartLevelButton = GameObject.Find("RestartLevelButton");
-        restartLevelButton.SetActive(false);
 
         audioSource = GameObject.Find("TavernAudioSource");
 
+        tutorialCanvas = GameObject.Find("TutorialCanvas");
+        frontCanvas = GameObject.Find("FrontCanvas");
+        frontText = GameObject.Find("FrontText");
+        frontText.SetActive(false);
+        frontScoreText = GameObject.Find("FrontScoreText");
+        frontScoreText.SetActive(false);
+        frontNextLevelButton = GameObject.Find("FrontNextLevelButton");
+        frontNextLevelButton.SetActive(false);
+        frontShotsText = GameObject.Find("FrontShotsText");
+
+
+        if (currentLevel == "KottabosTutorialLevel")
+        {
+            shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: Unlimited";
+            frontShotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: Unlimited";
+        }
     }
 
     void Update()
@@ -89,8 +112,14 @@ public class Score : MonoBehaviour
         {
             shotsLeft = 0;
         }
-        shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+
+        if(currentLevel != "KottabosTutorialLevel")
+        {
+            shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+            frontShotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+        }
         
+
         if (gameOver == false && shotsLeft <= 0)
         {
             GameOver();
@@ -109,6 +138,11 @@ public class Score : MonoBehaviour
         if (!isTutorial)
         {
             audioSource.GetComponent<AmbienceAudio>().LoseAudio();
+            tutorialCanvas.SetActive(false);
+            frontText.GetComponent<TMPro.TextMeshProUGUI>().text = "You Lose!";
+            frontScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
+            frontText.SetActive(true);
+            frontScoreText.SetActive(true);
         }
         
     }
@@ -120,6 +154,14 @@ public class Score : MonoBehaviour
         if (!isTutorial)
         {
             audioSource.GetComponent<AmbienceAudio>().WinAudio();
+            tutorialCanvas.SetActive(false);
+            frontText.GetComponent<TMPro.TextMeshProUGUI>().text = "You Win!";
+            frontScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
+            frontText.SetActive(true);
+            frontScoreText.SetActive(true);
+            frontNextLevelButton.SetActive(true);
+
+
         }
         
     }
