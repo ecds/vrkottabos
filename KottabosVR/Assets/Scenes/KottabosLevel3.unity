@@ -11077,11 +11077,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Within 50 attempts, earn 30 points to win the level.
+  m_text: 'Within 50 attempts, earn 30 points by hitting either targets to win the
+    level.
 
 
-    You can restart
-    any time by selecting the ''Menu'' button and clicking ''Restart Level.'''
+    You can restart any time by selecting the ''Menu'' button and clicking
+    ''Restart Level.'''
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
