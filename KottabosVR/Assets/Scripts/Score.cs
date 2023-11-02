@@ -14,6 +14,8 @@ public class Score : MonoBehaviour
 
     public GameObject shotsText;
 
+    public GameObject highScoreText;
+
     public GameObject nextLevelButton;
     public GameObject restartLevelButton;
 
@@ -27,9 +29,17 @@ public class Score : MonoBehaviour
 
     int shotsLeft;
 
-    string currentLevel;
+    string currentLevel, currentHighScore;
 
     bool isTutorial;
+
+    GameObject tutorialCanvas;
+    GameObject frontCanvas;
+    GameObject frontText;
+    GameObject frontScoreText;
+    GameObject frontNextLevelButton;
+    GameObject frontShotsText;
+
 
 
     void Start()
@@ -44,26 +54,31 @@ public class Score : MonoBehaviour
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
+                currentHighScore = "MainMenuHighScore";
                 break;
             case "KottabosTutorialLevel":
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
+                currentHighScore = "TutorialHighScore";
                 break;
             case "KottabosLevel1":
                 pointsToWin = 15;
                 shots = 15;
                 isTutorial = false;
+                currentHighScore = "1HighScore";
                 break;
             case "KottabosLevel2":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
+                currentHighScore = "2HighScore";
                 break;
             case "KottabosLevel3":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
+                currentHighScore = "3HighScore";
                 break;
         }
 
@@ -71,13 +86,30 @@ public class Score : MonoBehaviour
 
         shotsText = GameObject.Find("ShotsText");
 
+        highScoreText = GameObject.Find("HighScoreText");
+
         nextLevelButton = GameObject.Find("NextLevelButton");
         nextLevelButton.SetActive(false);
         restartLevelButton = GameObject.Find("RestartLevelButton");
-        restartLevelButton.SetActive(false);
 
         audioSource = GameObject.Find("TavernAudioSource");
 
+        tutorialCanvas = GameObject.Find("TutorialCanvas");
+        frontCanvas = GameObject.Find("FrontCanvas");
+        frontText = GameObject.Find("FrontText");
+        frontText.SetActive(false);
+        frontScoreText = GameObject.Find("FrontScoreText");
+        frontScoreText.SetActive(false);
+        frontNextLevelButton = GameObject.Find("FrontNextLevelButton");
+        frontNextLevelButton.SetActive(false);
+        frontShotsText = GameObject.Find("FrontShotsText");
+
+
+        if (currentLevel == "KottabosTutorialLevel")
+        {
+            shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: Unlimited";
+            frontShotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: Unlimited";
+        }
     }
 
     void Update()
@@ -89,8 +121,14 @@ public class Score : MonoBehaviour
         {
             shotsLeft = 0;
         }
-        shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+
+        if(currentLevel != "KottabosTutorialLevel")
+        {
+            shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+            frontShotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: " + shotsLeft.ToString();
+        }
         
+
         if (gameOver == false && shotsLeft <= 0)
         {
             GameOver();
@@ -100,6 +138,8 @@ public class Score : MonoBehaviour
         {
             YouWin();
         }
+
+        CheckHighScore();
     }
 
     void GameOver()
@@ -109,6 +149,11 @@ public class Score : MonoBehaviour
         if (!isTutorial)
         {
             audioSource.GetComponent<AmbienceAudio>().LoseAudio();
+            tutorialCanvas.SetActive(false);
+            frontText.GetComponent<TMPro.TextMeshProUGUI>().text = "You Lose!";
+            frontScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
+            frontText.SetActive(true);
+            frontScoreText.SetActive(true);
         }
         
     }
@@ -120,9 +165,31 @@ public class Score : MonoBehaviour
         if (!isTutorial)
         {
             audioSource.GetComponent<AmbienceAudio>().WinAudio();
+            tutorialCanvas.SetActive(false);
+            frontText.GetComponent<TMPro.TextMeshProUGUI>().text = "You Win!";
+            frontScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + score.ToString();
+            frontText.SetActive(true);
+            frontScoreText.SetActive(true);
+            frontNextLevelButton.SetActive(true);
+
+
         }
         
     }
+
+    void CheckHighScore()
+    {
+        //HIGH SCORE
+
+        if (score > PlayerPrefs.GetFloat(currentHighScore))
+        {
+            PlayerPrefs.SetFloat(currentHighScore, score);
+        }
+
+        highScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "High Score:\n" + PlayerPrefs.GetFloat(currentHighScore).ToString();
+
+    }
+    
 
     /*give scripts to cup, projectile, and plastinx
     scripts should have a method for what scores they get when the collide with certain objjects
