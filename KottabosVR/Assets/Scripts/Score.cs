@@ -14,6 +14,8 @@ public class Score : MonoBehaviour
 
     public GameObject shotsText;
 
+    public GameObject highScoreText;
+
     public GameObject nextLevelButton;
     public GameObject restartLevelButton;
 
@@ -27,7 +29,7 @@ public class Score : MonoBehaviour
 
     int shotsLeft;
 
-    string currentLevel;
+    string currentLevel, currentHighScore;
 
     bool isTutorial;
 
@@ -52,32 +54,39 @@ public class Score : MonoBehaviour
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
+                currentHighScore = "MainMenuHighScore";
                 break;
             case "KottabosTutorialLevel":
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
+                currentHighScore = "TutorialHighScore";
                 break;
             case "KottabosLevel1":
                 pointsToWin = 15;
                 shots = 15;
                 isTutorial = false;
+                currentHighScore = "1HighScore";
                 break;
             case "KottabosLevel2":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
+                currentHighScore = "2HighScore";
                 break;
             case "KottabosLevel3":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
+                currentHighScore = "3HighScore";
                 break;
         }
 
         scoreText = GameObject.Find("ScoreText");
 
         shotsText = GameObject.Find("ShotsText");
+
+        highScoreText = GameObject.Find("HighScoreText");
 
         nextLevelButton = GameObject.Find("NextLevelButton");
         nextLevelButton.SetActive(false);
@@ -129,6 +138,8 @@ public class Score : MonoBehaviour
         {
             YouWin();
         }
+
+        CheckHighScore();
     }
 
     void GameOver()
@@ -165,6 +176,20 @@ public class Score : MonoBehaviour
         }
         
     }
+
+    void CheckHighScore()
+    {
+        //HIGH SCORE
+
+        if (score > PlayerPrefs.GetFloat(currentHighScore))
+        {
+            PlayerPrefs.SetFloat(currentHighScore, score);
+        }
+
+        highScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "High Score:\n" + PlayerPrefs.GetFloat(currentHighScore).ToString();
+
+    }
+    
 
     /*give scripts to cup, projectile, and plastinx
     scripts should have a method for what scores they get when the collide with certain objjects
