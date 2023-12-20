@@ -23,7 +23,6 @@ public class ResetCup : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(kylix.transform.position + " " + startPosition + " " + Vector3.Distance(kylix.transform.position, startPosition));
         if (Vector3.Distance(kylix.transform.position, startPosition) > 0.05f && cupIsHeld == false)
         {
             button.SetActive(true);

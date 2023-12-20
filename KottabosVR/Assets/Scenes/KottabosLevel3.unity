@@ -1982,6 +1982,8 @@ GameObject:
   m_Component:
   - component: {fileID: 150154810}
   - component: {fileID: 150154809}
+  - component: {fileID: 150154811}
+  - component: {fileID: 150154812}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -2016,6 +2018,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150154811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150154808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3270c2ee5f1129446b7988932b7a1545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &150154812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150154808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a2b6fbaf496324e958a31387f43201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &175609789
 GameObject:
   m_ObjectHideFlags: 0
@@ -12235,6 +12261,7 @@ MonoBehaviour:
   meshCollider: {fileID: 341835609}
   releaseSpeed: 1
   peakResetThreshold: 0
+  shotsFired: 0
   sounds:
   - {fileID: 8300000, guid: 5af1c3e21989c3a4780c5a7f546cf252, type: 3}
   - {fileID: 8300000, guid: 924261b7bc6bcaf448ad3be8fc22f089, type: 3}
@@ -20189,7 +20216,7 @@ MonoBehaviour:
   nextLevelButton: {fileID: 0}
   restartLevelButton: {fileID: 0}
   sounds: []
-  shots: 0
+  shotsLeft: 0
 --- !u!4 &1813954606
 Transform:
   m_ObjectHideFlags: 0

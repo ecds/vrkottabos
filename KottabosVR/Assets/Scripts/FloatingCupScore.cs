@@ -12,8 +12,12 @@ public class FloatingCupScore : ScoreObjectBase
     private AudioSource audioSource;
     public AudioClip[] sounds;
 
+    public static int sunkCups;
+
     void Start()
     {
+        sunkCups = 0;
+
         projectileModel1 = this.gameObject.transform.Find("WineLees");
         projectileModel2 = this.gameObject.transform.Find("WineLees2");
         projectileModel3 = this.gameObject.transform.Find("WineLees3");
@@ -73,6 +77,8 @@ public class FloatingCupScore : ScoreObjectBase
     {
         addScore(7f);
         this.GetComponent<Rigidbody>().mass = 7;
+        sunkCups++;
+        Debug.Log("sunk cups: " + sunkCups);
     }
 
     public void PlayAudio(int startIndex, int endIndex)

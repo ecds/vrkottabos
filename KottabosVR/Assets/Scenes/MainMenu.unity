@@ -2610,9 +2610,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nProject Team: \r\n\rAiden Gohlke \u2013 Lead Game Design and Programmer,
-    Kennesaw State University \r\n\rDonovan Lott \u2013 Lead Game Design and Programmer,
-    Kennesaw State University \r\n\rJake Lewis \u2013 Student Game Design and Programmer,
+  m_text: "\n\nProject Team: \r\n\rDonovan Lott \u2013 Lead Game Design and Programmer,
+    Kennesaw State University\nAiden Gohlke \u2013 Lead Game Design and Programmer,
+    Kennesaw State University \r\nJake Lewis \u2013 Student Game Design and Programmer,
     Kennesaw State University (2022) \r\n\rDr. Sandra Blakely \u2013 Project Director,
     Emory University, Department of Classics \r\n\rDr. Joanna C. Mundy \u2013 Project
     Manager, Digital Projects Specialist, Emory Center for Digital Scholarship \r\n\rDr.
@@ -5094,6 +5094,7 @@ GameObject:
   - component: {fileID: 1093182270}
   - component: {fileID: 1093182269}
   - component: {fileID: 1093182271}
+  - component: {fileID: 1093182272}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -5138,6 +5139,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3270c2ee5f1129446b7988932b7a1545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1093182272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093182268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a2b6fbaf496324e958a31387f43201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1098724268

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Steamworks;
 
 public class Score : MonoBehaviour
 {
@@ -22,14 +23,13 @@ public class Score : MonoBehaviour
     private GameObject audioSource;
     public AudioClip[] sounds;
 
-    private bool gameOver, youWin;
+    public static bool gameOver, youWin;
 
-    public int shots;
-    public static int shotsFired;
+    public static int shots, shotsFired, misses;
 
-    int shotsLeft;
+    public int shotsLeft;
 
-    string currentLevel, currentHighScore;
+    string currentLevel, currentHighScore, lvlStat;
 
     bool isTutorial;
 
@@ -40,12 +40,15 @@ public class Score : MonoBehaviour
     GameObject frontNextLevelButton;
     GameObject frontShotsText;
 
-
+    
 
     void Start()
     {
         score = 0;
         shotsFired = 0;
+        misses = 0;
+        gameOver = false; 
+        youWin = false;
 
         currentLevel = SceneManager.GetActiveScene().name;
         switch (currentLevel)
@@ -55,30 +58,35 @@ public class Score : MonoBehaviour
                 shots = 0;
                 isTutorial = true;
                 currentHighScore = "MainMenuHighScore";
+                lvlStat = "";
                 break;
             case "KottabosTutorialLevel":
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
                 currentHighScore = "TutorialHighScore";
+                lvlStat = "";
                 break;
             case "KottabosLevel1":
                 pointsToWin = 15;
                 shots = 15;
                 isTutorial = false;
                 currentHighScore = "1HighScore";
+                lvlStat = "lvl1_won";
                 break;
             case "KottabosLevel2":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
                 currentHighScore = "2HighScore";
+                lvlStat = "lvl2_won";
                 break;
             case "KottabosLevel3":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
                 currentHighScore = "3HighScore";
+                lvlStat = "lvl3_won";
                 break;
         }
 
@@ -172,7 +180,7 @@ public class Score : MonoBehaviour
             frontScoreText.SetActive(true);
             frontNextLevelButton.SetActive(true);
 
-
+            Achievements.levelWon(lvlStat);
         }
         
     }
