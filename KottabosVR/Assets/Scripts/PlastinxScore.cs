@@ -10,8 +10,12 @@ public class PlastinxScore : ScoreObjectBase
     public AudioClip[] sounds;
     bool onFloor;
 
+    public static bool plastinxOnFloor; //for getting achievement
+
     void Start()
     {
+        plastinxOnFloor = false;
+
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -27,6 +31,7 @@ public class PlastinxScore : ScoreObjectBase
             addScore(10f);
             PlayAudio(5,9);
             onFloor = true;
+            plastinxOnFloor = true;
         }
         else if (col.gameObject.tag == "Projectile")
         {

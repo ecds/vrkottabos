@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mane : MonoBehaviour
+public class Mane : ScoreObjectBase
 {
     private AudioSource audioSource;
     public AudioClip[] sounds;
@@ -16,6 +16,7 @@ public class Mane : MonoBehaviour
     {
         if (col.gameObject.tag == "Projectile")
         {
+            addScore(1f);
             PlayAudio(0, 0);
         }
         else if (col.gameObject.tag == "Kylix")
