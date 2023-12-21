@@ -11,6 +11,7 @@ public class Achievements : MonoBehaviour
     string currentLevel;
 
     bool cupsSank, plastinxDown, noMissLvl3;
+    static bool hs35, hs45, hs55;
 
     // Start is called before the first frame update
     void Start()
@@ -47,16 +48,6 @@ public class Achievements : MonoBehaviour
 
     }
 
-    public void TestAchievement()
-    {
-        if (!SteamManager.Initialized) { return; }
-
-        SteamUserStats.SetAchievement("TEST_ACHIEVEMENT_1");
-
-        SteamUserStats.StoreStats();
-
-        Debug.Log("Achievement got");
-    }
 
     void cupsSankAch()
     {
@@ -92,7 +83,7 @@ public class Achievements : MonoBehaviour
 
     void NoMissLvl3Ach()
     {
-        if (Score.misses == 0 && Score.youWin == true)
+        if (Score.misses <= 0 && Score.youWin == true)
         {
             if (!SteamManager.Initialized) { return; }
 
@@ -133,7 +124,7 @@ public class Achievements : MonoBehaviour
 
         SteamUserStats.SetStat("all_lvls_won", totalwins);
 
-        Debug.Log("Level 1 wins: " + lvl1won + "Level 2 wins: " + lvl2won + "Level 3 wins: " + lvl3won + "Total wins: " + totalwins);
+        Debug.Log("Level 1 wins: " + lvl1won + " Level 2 wins: " + lvl2won + " Level 3 wins: " + lvl3won + "Total wins: " + totalwins);
 
         SteamUserStats.StoreStats();
     }
@@ -149,14 +140,14 @@ public class Achievements : MonoBehaviour
         return timePlayed;
     }
 
-    public static void SetTime(float timePlayed) //called in TimePlayedScript
+    public static void SetTime(float timePlayed) //called in TimePlayed Script
     {
         if (!SteamManager.Initialized) { return; }
 
         Steamworks.SteamUserStats.SetStat("time_played", timePlayed); //saves time played
     }
 
-    public static void SixteenHours() //called in TimePlayedScript
+    public static void SixteenHours() //called in TimePlayed Script
     {
         if (!SteamManager.Initialized) { return; }
 
@@ -166,7 +157,56 @@ public class Achievements : MonoBehaviour
 
     }
 
-  
+    public static float GetHighScore(string levelHS) //called in Score script
+    {
+        float hs;
+
+        if (!SteamManager.Initialized) { return 0.0f; }
+
+        Steamworks.SteamUserStats.GetStat(levelHS, out hs); 
+
+        return hs;
+    }
+
+    public static void SetHighScore(string levelHS, float hs) //called in Score script
+    {
+
+        if (!SteamManager.Initialized) { return; }
+
+        Steamworks.SteamUserStats.SetStat(levelHS, hs); //saves high score for that level
+    }
+
+    public static void HighScoreAchievements(float score) //called in Score script
+    {
+        if(!hs35 && score >= 55f) //change to 55
+        {
+            if (!SteamManager.Initialized) { return; }
+
+            SteamUserStats.ClearAchievement("MEDIUM_HIGHSCORE");
+
+            SteamUserStats.StoreStats();
+        }
+
+        if (!hs45 && score >= 65f) //change to 65
+        {
+            if (!SteamManager.Initialized) { return; }
+
+            SteamUserStats.SetAchievement("HIGH_HIGHSCORE");
+
+            SteamUserStats.StoreStats();
+        }
+
+        if (!hs55 && score >= 75f) //change to 75
+        {
+            if (!SteamManager.Initialized) { return; }
+
+            SteamUserStats.SetAchievement("HIGHEST_HIGHSCORE");
+
+            SteamUserStats.StoreStats();
+        }
+    }
+
+
     /*
     //[Button]
     public void IsThisAchievementUnlocked(string id)

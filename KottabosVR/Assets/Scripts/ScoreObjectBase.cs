@@ -7,6 +7,9 @@ public class ScoreObjectBase : MonoBehaviour
 
     public void addScore(float value)
     {
-        Score.score += value;
+        if (!Score.gameOver)
+        {
+            Score.score += value;
+        }
     }
 }

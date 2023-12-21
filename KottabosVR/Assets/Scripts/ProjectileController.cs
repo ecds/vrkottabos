@@ -32,6 +32,13 @@ public class ProjectileController : MonoBehaviour
 			this.lifeSpan -= Time.deltaTime;
 			if (this.lifeSpan <= 0)
 			{
+				if(this.GetComponent<ProjectileScore>().hitSomething == false)
+				{
+                    
+					Score.misses += 1;//if for some reason the projectile disappears without touching anything, not even terrain, it counts as a miss
+                    Debug.Log("MISAPPEAR hits: " + Score.hits + " misses: " + Score.misses);
+                }
+
 				Object.Destroy(this.gameObject);
 			}
 			this.clipTime -= Time.deltaTime;

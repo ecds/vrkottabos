@@ -77,8 +77,10 @@ public class FloatingCupScore : ScoreObjectBase
     {
         addScore(7f);
         this.GetComponent<Rigidbody>().mass = 7;
+        this.gameObject.tag = "Untagged";
+        this.gameObject.layer = LayerMask.NameToLayer("Terrain");
         sunkCups++;
-        Debug.Log("sunk cups: " + sunkCups);
+        
     }
 
     public void PlayAudio(int startIndex, int endIndex)
