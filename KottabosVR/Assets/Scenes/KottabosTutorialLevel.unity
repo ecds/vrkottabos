@@ -10590,7 +10590,7 @@ GameObject:
   - component: {fileID: 928971381}
   - component: {fileID: 928971380}
   m_Layer: 5
-  m_Name: NextLevelButton
+  m_Name: NextLevelButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17698,7 +17698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1541546235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25467,7 +25467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2116056204
 RectTransform:
   m_ObjectHideFlags: 0

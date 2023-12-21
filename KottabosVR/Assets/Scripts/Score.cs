@@ -25,11 +25,12 @@ public class Score : MonoBehaviour
 
     public static bool gameOver, youWin;
 
-    public static int shots, shotsFired, misses;
+    public static int shots, shotsFired, misses, hits; //hits and misses are added in the ProjectileScore and ProjectileController scripts
 
     public int shotsLeft;
 
-    string currentLevel, currentHighScore, lvlStat;
+    string currentLevel, lvlStat, lvlHS;
+    float currentHS;
 
     bool isTutorial;
 
@@ -50,6 +51,7 @@ public class Score : MonoBehaviour
         gameOver = false; 
         youWin = false;
 
+
         currentLevel = SceneManager.GetActiveScene().name;
         switch (currentLevel)
         {
@@ -57,36 +59,36 @@ public class Score : MonoBehaviour
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
-                currentHighScore = "MainMenuHighScore";
                 lvlStat = "";
+                lvlHS = "";
                 break;
             case "KottabosTutorialLevel":
                 pointsToWin = 0;
                 shots = 0;
                 isTutorial = true;
-                currentHighScore = "TutorialHighScore";
                 lvlStat = "";
+                lvlHS = "";
                 break;
             case "KottabosLevel1":
                 pointsToWin = 15;
                 shots = 15;
                 isTutorial = false;
-                currentHighScore = "1HighScore";
                 lvlStat = "lvl1_won";
+                lvlHS = "lvl1_hs";
                 break;
             case "KottabosLevel2":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
-                currentHighScore = "2HighScore";
                 lvlStat = "lvl2_won";
+                lvlHS = "lvl2_hs";
                 break;
             case "KottabosLevel3":
                 pointsToWin = 30;
                 shots = 50;
                 isTutorial = false;
-                currentHighScore = "3HighScore";
                 lvlStat = "lvl3_won";
+                lvlHS = "lvl3_hs";
                 break;
         }
 
@@ -94,10 +96,23 @@ public class Score : MonoBehaviour
 
         shotsText = GameObject.Find("ShotsText");
 
-        highScoreText = GameObject.Find("HighScoreText");
+        if (!isTutorial)
+        {
+            highScoreText = GameObject.Find("HighScoreText");
 
-        nextLevelButton = GameObject.Find("NextLevelButton");
-        nextLevelButton.SetActive(false);
+            nextLevelButton = GameObject.Find("NextLevelButton");
+            nextLevelButton.SetActive(false);
+
+            frontScoreText = GameObject.Find("FrontScoreText");
+            frontScoreText.SetActive(false);
+
+            frontNextLevelButton = GameObject.Find("FrontNextLevelButton");
+            frontNextLevelButton.SetActive(false);
+
+            currentHS = Achievements.GetHighScore(lvlHS);
+            highScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "High Score:\n" + currentHS.ToString();
+        }
+
         restartLevelButton = GameObject.Find("RestartLevelButton");
 
         audioSource = GameObject.Find("TavernAudioSource");
@@ -106,10 +121,8 @@ public class Score : MonoBehaviour
         frontCanvas = GameObject.Find("FrontCanvas");
         frontText = GameObject.Find("FrontText");
         frontText.SetActive(false);
-        frontScoreText = GameObject.Find("FrontScoreText");
-        frontScoreText.SetActive(false);
-        frontNextLevelButton = GameObject.Find("FrontNextLevelButton");
-        frontNextLevelButton.SetActive(false);
+        
+        
         frontShotsText = GameObject.Find("FrontShotsText");
 
 
@@ -118,6 +131,9 @@ public class Score : MonoBehaviour
             shotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: Unlimited";
             frontShotsText.GetComponent<TMPro.TextMeshProUGUI>().text = "Shots Left: Unlimited";
         }
+
+
+        
     }
 
     void Update()
@@ -147,7 +163,11 @@ public class Score : MonoBehaviour
             YouWin();
         }
 
-        CheckHighScore();
+        if (!isTutorial)
+        {
+            CheckHighScore();
+        }
+        
     }
 
     void GameOver()
@@ -189,12 +209,25 @@ public class Score : MonoBehaviour
     {
         //HIGH SCORE
 
-        if (score > PlayerPrefs.GetFloat(currentHighScore))
+        if (score > currentHS)
         {
-            PlayerPrefs.SetFloat(currentHighScore, score);
+
+            Achievements.SetHighScore(lvlHS, score);
+            
+            if(currentLevel == "KottabosLevel3")
+            {
+                Achievements.HighScoreAchievements(score);
+            }
+
+
+            currentHS = Achievements.GetHighScore(lvlHS);
+            highScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "High Score:\n" + currentHS.ToString();
+
         }
 
-        highScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "High Score:\n" + PlayerPrefs.GetFloat(currentHighScore).ToString();
+        
+
+        
 
     }
     
