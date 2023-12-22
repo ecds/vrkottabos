@@ -31,6 +31,7 @@ public class Score : MonoBehaviour
 
     string currentLevel, lvlStat, lvlHS;
     float currentHS;
+    int previousHits;
 
     bool isTutorial;
 
@@ -45,12 +46,14 @@ public class Score : MonoBehaviour
 
     void Start()
     {
+        Achievements.Hitrate(hits, misses); //calculates hitrate of last round before hit and miss variables are reset;
         score = 0;
         shotsFired = 0;
         misses = 0;
         gameOver = false; 
         youWin = false;
 
+        previousHits = 0;
 
         currentLevel = SceneManager.GetActiveScene().name;
         switch (currentLevel)
@@ -209,6 +212,8 @@ public class Score : MonoBehaviour
     {
         //HIGH SCORE
 
+        
+
         if (score > currentHS)
         {
 
@@ -225,11 +230,16 @@ public class Score : MonoBehaviour
 
         }
 
-        
 
-        
+        if (hits > previousHits && currentLevel == "KottabosLevel3") //updates every time a successful hit is made
+        {
+            Achievements.HighScoreAchievements(score);
+        }
 
+
+        previousHits = hits;
     }
+
     
 
     /*give scripts to cup, projectile, and plastinx
