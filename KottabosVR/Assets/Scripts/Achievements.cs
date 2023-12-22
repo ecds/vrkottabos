@@ -11,7 +11,7 @@ public class Achievements : MonoBehaviour
     string currentLevel;
 
     bool cupsSank, plastinxDown, noMissLvl3;
-    static bool hs35, hs45, hs55;
+    static bool hs55, hs65, hs75, hr50, hr75, hr95;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +59,7 @@ public class Achievements : MonoBehaviour
 
             SteamUserStats.StoreStats();
 
-            Debug.Log("cup achievement got");
+            //Debug.Log("cup achievement got");
 
             cupsSank = true;
         }
@@ -75,7 +75,7 @@ public class Achievements : MonoBehaviour
 
             SteamUserStats.StoreStats();
 
-            Debug.Log("plastinx achievement got");
+            //Debug.Log("plastinx achievement got");
 
             plastinxDown = true;
         }
@@ -91,7 +91,7 @@ public class Achievements : MonoBehaviour
 
             SteamUserStats.StoreStats();
 
-            Debug.Log("no misses achievement got");
+            //Debug.Log("no misses achievement got");
 
             noMissLvl3 = true;
         }
@@ -124,7 +124,7 @@ public class Achievements : MonoBehaviour
 
         SteamUserStats.SetStat("all_lvls_won", totalwins);
 
-        Debug.Log("Level 1 wins: " + lvl1won + " Level 2 wins: " + lvl2won + " Level 3 wins: " + lvl3won + "Total wins: " + totalwins);
+        //Debug.Log("Level 1 wins: " + lvl1won + " Level 2 wins: " + lvl2won + " Level 3 wins: " + lvl3won + "Total wins: " + totalwins);
 
         SteamUserStats.StoreStats();
     }
@@ -178,62 +178,85 @@ public class Achievements : MonoBehaviour
 
     public static void HighScoreAchievements(float score) //called in Score script
     {
-        if(!hs35 && score >= 55f) //change to 55
+        if (!hs55 && score >= 55f) 
         {
             if (!SteamManager.Initialized) { return; }
 
-            SteamUserStats.ClearAchievement("MEDIUM_HIGHSCORE");
+            SteamUserStats.SetAchievement("MEDIUM_HIGHSCORE");
 
             SteamUserStats.StoreStats();
+
+            hs55 = true;
         }
 
-        if (!hs45 && score >= 65f) //change to 65
+        if (!hs65 && score >= 65f) 
         {
             if (!SteamManager.Initialized) { return; }
 
             SteamUserStats.SetAchievement("HIGH_HIGHSCORE");
 
             SteamUserStats.StoreStats();
+
+            hs65 = true;
         }
 
-        if (!hs55 && score >= 75f) //change to 75
+        if (!hs75 && score >= 75f) 
         {
             if (!SteamManager.Initialized) { return; }
 
             SteamUserStats.SetAchievement("HIGHEST_HIGHSCORE");
 
             SteamUserStats.StoreStats();
+
+            hs75 = true;
         }
     }
 
-
-    /*
-    //[Button]
-    public void IsThisAchievementUnlocked(string id)
+    public static void Hitrate(int hits, int misses)
     {
-        var ach = new Steamworks.Data.Achievement(id);
+        float hitrate;
 
-        Debug.Log($"Achievement {id} status: " + ach.State);
+        if (!SteamManager.Initialized) { return; }
+
+
+        if ((hits + misses) > 0)
+        {
+            SteamUserStats.UpdateAvgRateStat("hit%per100throws", (float)hits, (float)(hits + misses));
+        }
+
+        Steamworks.SteamUserStats.GetStat("hit%per100throws", out hitrate);
+
+        if (!hr50 && hitrate >= 0.50f) //couldnt get the achievement to be accomplished automatically through steam api using hit%per100throws like with the levels_won stat, so instead i had to create these if statements
+        {
+            if (!SteamManager.Initialized) { return; }
+
+            SteamUserStats.SetAchievement("MEDIUM_HITRATE");
+
+            hr50 = true;
+        }
+
+        if (!hr75 && hitrate >= 0.75f) 
+        {
+            if (!SteamManager.Initialized) { return; }
+
+            SteamUserStats.SetAchievement("HIGH_HITRATE");
+
+            hr75 = true;
+        }
+
+        if (!hr95 && hitrate >= 0.95f) 
+        {
+            if (!SteamManager.Initialized) { return; }
+
+            SteamUserStats.SetAchievement("HIGHEST_HITRATE");
+
+            hr95 = true;
+        }
+
+        SteamUserStats.StoreStats();
+
     }
 
-    //[Button]
-    public void UnlockAchievement(string id)
-    {
-        var ach = new Steamworks.Data.Achievement(id);
-        ach.Trigger();
-
-        Debug.Log($"Achievement {id} unlocked");
-    }
-
-    //[Button]
-    public void ClearAchievementStatus(string id)
-    {
-        var ach = new Steamworks.Data.Achievement(id);
-        ach.Trigger();
-
-        Debug.Log($"Achievement {id} cleared");
-    }
-    */
-
+    
 
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Steamworks;
 
 public class MenuCanvas : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class MenuCanvas : MonoBehaviour
         creditsCanvas.SetActive(false);
         infoCanvas = GameObject.Find("InfoCanvas");
         infoCanvas.SetActive(false);
+
+        Achievements.Hitrate(Score.hits, Score.misses); //necessary for getting the hitrate achievements if player exits to main menu during a level.
     }
 
 

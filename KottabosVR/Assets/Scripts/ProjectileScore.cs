@@ -23,7 +23,7 @@ public class ProjectileScore : ScoreObjectBase
                 Score.hits += 1; //adds to hits
             }
 
-            Debug.Log("HIT " + col.gameObject.tag + " hits: " + Score.hits + " misses: " + Score.misses + " tn: " + hitTerrain + " tg: " + hitTarget);
+            //Debug.Log("HIT " + col.gameObject.tag + " hits: " + Score.hits + " misses: " + Score.misses + " tn: " + hitTerrain + " tg: " + hitTarget);
             hitSomething = true;
             hitTarget = true;
         }
@@ -33,7 +33,7 @@ public class ProjectileScore : ScoreObjectBase
             hitSomething = true;
             hitTerrain = true;
             Score.misses += 1; //adds to misses. ProjectileConroller also contains a line that adds to the misses count in the event that a projectile doesnt hit anything, even terrain
-            Debug.Log("TERRAIN hits: " + Score.hits + " misses: " + Score.misses);
+            //Debug.Log("TERRAIN hits: " + Score.hits + " misses: " + Score.misses);
         }
     }
 
