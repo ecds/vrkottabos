@@ -8638,6 +8638,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a340d00cd4f5524a99554eea09dcf11, type: 3}
+--- !u!1 &857943062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4027911098603582574, guid: 40a64273176bb1249b354ff02ecc9b9c, type: 3}
+  m_PrefabInstance: {fileID: 429084510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &857943063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857943062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a735b80f2b38e49a9b84b4e8121d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 857943064}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &857943064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857943062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.93225074, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &862694340
 GameObject:
   m_ObjectHideFlags: 0
@@ -13858,6 +13895,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327972574}
   m_CullTransparentMesh: 1
+--- !u!1 &1360185336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4027911098603582574, guid: 40a64273176bb1249b354ff02ecc9b9c, type: 3}
+  m_PrefabInstance: {fileID: 742440916}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1360185337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360185336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a735b80f2b38e49a9b84b4e8121d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 1360185338}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1360185338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360185336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.93225074, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1364021703
 GameObject:
   m_ObjectHideFlags: 0
@@ -15446,6 +15520,43 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6416302070336371891, guid: c5793906cec93354980c328e08e2c979, type: 3}
+--- !u!1 &1466519149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4027911098603582574, guid: 40a64273176bb1249b354ff02ecc9b9c, type: 3}
+  m_PrefabInstance: {fileID: 1697970838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1466519150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466519149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a735b80f2b38e49a9b84b4e8121d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 1466519151}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1466519151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466519149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.93225074, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &1473976511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20936,6 +21047,8 @@ GameObject:
   - component: {fileID: 1860766352}
   - component: {fileID: 1860766351}
   - component: {fileID: 1860766357}
+  - component: {fileID: 1860766358}
+  - component: {fileID: 1860766359}
   m_Layer: 7
   m_Name: Plastinx
   m_TagString: Plastinx
@@ -21161,6 +21274,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1860766358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860766350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.93225074, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1860766359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860766350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a735b80f2b38e49a9b84b4e8121d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 0}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1861176567
 PrefabInstance:
   m_ObjectHideFlags: 0
