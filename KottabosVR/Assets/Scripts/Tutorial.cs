@@ -53,6 +53,7 @@ public class Tutorial : MonoBehaviour
     void LoadPlastinx()
     {
         plastinx.SetActive(true);
+        plastinx.transform.GetChild(4).gameObject.GetComponent<OutlinePulse>().Start();
     }
 
     public void LoadScreen1()
